@@ -46,7 +46,7 @@ export const LandingPage: React.FC = () => {
       <Navbar />
 
       {/* Hero Section with Moving Background Grid */}
-      <section className="relative overflow-hidden min-h-[calc(100vh-4rem)] flex flex-col justify-center py-12 lg:py-20 bg-gradient-to-br from-blue-50/40 via-purple-50/30 to-rose-50/30">
+      <section className="relative overflow-hidden min-h-[calc(100vh-4rem)] flex flex-col justify-start pt-4 sm:pt-6 lg:pt-8 pb-12 lg:pb-16 bg-gradient-to-br from-blue-50/40 via-purple-50/30 to-rose-50/30">
         
         {/* Animated Moving Background Grid Overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#cbd5e1_1px,transparent_1px),linear-gradient(to_bottom,#cbd5e1_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_100%_100%_at_50%_50%,#000_80%,transparent_100%)] opacity-55 pointer-events-none animate-moving-grid" />
@@ -58,7 +58,7 @@ export const LandingPage: React.FC = () => {
 
 
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col justify-center my-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col justify-center pt-2 sm:pt-4 my-auto">
           <div className="text-center max-w-4xl mx-auto space-y-6">
             
             {/* Top Pill */}
@@ -77,18 +77,18 @@ export const LandingPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-outfit text-slate-900 leading-tight min-h-[100px] sm:min-h-[140px] flex flex-col items-center justify-center"
+              className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-outfit text-slate-900 leading-tight flex flex-col items-center justify-center space-y-1 sm:space-y-2"
             >
               <span>Protect Every Patient.</span>
-              <div className="h-14 sm:h-20 overflow-hidden flex items-center justify-center">
+              <div className="w-full min-h-[3.5rem] sm:min-h-[5rem] lg:min-h-[5.5rem] py-2 overflow-hidden flex items-center justify-center">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={phraseIdx}
-                    initial={{ opacity: 0, y: 24 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -24 }}
-                    transition={{ duration: 0.4, ease: 'easeOut' }}
-                    className="text-gradient block text-center px-2"
+                    exit={{ opacity: 0, y: -16 }}
+                    transition={{ duration: 0.35, ease: 'easeOut' }}
+                    className="text-gradient block text-center px-2 text-2xl xs:text-3xl sm:text-5xl lg:text-6xl leading-normal font-extrabold"
                   >
                     {ROTATING_PHRASES[phraseIdx]}
                   </motion.span>
