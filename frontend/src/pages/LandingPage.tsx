@@ -262,13 +262,88 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs space-y-4">
-          <div className="flex items-center justify-center font-bold text-white text-lg font-outfit">
-            <img src="/logo.png" alt="CyberCare Logo" className="h-10 w-auto object-contain" />
+      {/* Comprehensive Professional Footer */}
+      <footer className="bg-slate-950 text-slate-400 border-t border-slate-800/80 mt-auto pt-16 pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          {/* Main Footer Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+            {/* Column 1: Brand & Overview (Spans 2 cols on lg) */}
+            <div className="lg:col-span-2 space-y-4">
+              <Link to="/" className="inline-flex items-center gap-3 group">
+                <img src="/logo.png" alt="CyberCare Logo" className="h-10 w-auto object-contain group-hover:scale-105 transition-transform" />
+                <span className="font-extrabold text-2xl tracking-tight text-white font-outfit">
+                  Cyber<span className="text-rose-400">Care</span>
+                </span>
+              </Link>
+
+              <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
+                CyberCare is an enterprise-grade healthcare security platform engineering zero-trust authorization, department-isolated medical records, 2FA verification, and controlled emergency break-glass overrides.
+              </p>
+
+              {/* Status Badge */}
+              <div className="pt-2 flex items-center gap-3">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>SOC Systems Operational</span>
+                </span>
+                <span className="text-xs text-slate-500 font-mono">v2.4.0</span>
+              </div>
+            </div>
+
+            {/* Column 2: Clinical Workflows */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-extrabold text-white uppercase tracking-wider font-outfit">Clinical Modules</h4>
+              <ul className="space-y-2 text-xs">
+                <li><a href="#features" className="hover:text-white transition-colors">Command Center</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Multi-Dept Directory</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Patient Intake Desk</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Doctor Assignment RLS</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Break-Glass Emergency</a></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Security & AI */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-extrabold text-white uppercase tracking-wider font-outfit">Security & AI</h4>
+              <ul className="space-y-2 text-xs">
+                <li><a href="#features" className="hover:text-white transition-colors">RBAC Authorization</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Mandatory 2FA / OTP</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Scikit-Learn ML Forest</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Immutable Audit Logs</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Supabase Row-Level Security</a></li>
+              </ul>
+            </div>
+
+            {/* Column 4: Quick Portals */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-extrabold text-white uppercase tracking-wider font-outfit">Role Portals</h4>
+              <ul className="space-y-2 text-xs">
+                <li><Link to="/signin" className="hover:text-rose-400 transition-colors font-medium">Admin Portal Login</Link></li>
+                <li><Link to="/signin" className="hover:text-indigo-400 transition-colors font-medium">Doctor Workspace</Link></li>
+                <li><Link to="/signin" className="hover:text-emerald-400 transition-colors font-medium">Receptionist Desk</Link></li>
+                <li><Link to="/signin" className="hover:text-amber-400 transition-colors font-medium">Emergency Override</Link></li>
+                <li><Link to="/signin" className="hover:text-blue-400 transition-colors font-medium">Sign In to SOC</Link></li>
+              </ul>
+            </div>
           </div>
-          <p>© 2026 CyberCare Inc. AI-Powered Hospital Data Security & Emergency Access Platform. All rights reserved.</p>
+
+          {/* Bottom Divider & Copyright */}
+          <div className="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <p className="text-slate-500">
+              © 2026 CyberCare Inc. AI-Powered Hospital Security & Emergency Access Platform. All rights reserved.
+            </p>
+
+            <div className="flex items-center gap-6 text-slate-500">
+              <a href="#features" className="hover:text-slate-300 transition-colors">HIPAA Compliance</a>
+              <span>·</span>
+              <a href="#features" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
+              <span>·</span>
+              <a href="#features" className="hover:text-slate-300 transition-colors">Security Audit</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
