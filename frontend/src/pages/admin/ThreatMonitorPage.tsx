@@ -34,13 +34,13 @@ export const ThreatMonitorPage: React.FC = () => {
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
+        <main className="flex-1 p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto w-full min-w-0">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 uppercase tracking-widest">
-              <Activity className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold text-indigo-600 uppercase tracking-widest">
+              <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               <span>AI Anomaly Detection Engine</span>
             </div>
-            <h1 className="text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
               AI Threat Monitor & Telemetry Scorecard
             </h1>
           </div>
@@ -48,7 +48,7 @@ export const ThreatMonitorPage: React.FC = () => {
           {threatOverview && <ThreatScoreCard threat={threatOverview} />}
 
           {/* Security Events List */}
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-glass p-6">
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-glass p-4 sm:p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-extrabold text-slate-900 text-base font-outfit">Anomalous Telemetry Logs</h3>
               <span className="text-xs font-bold text-slate-500">{securityEvents.length} Anomaly Events</span>
@@ -56,7 +56,7 @@ export const ThreatMonitorPage: React.FC = () => {
 
             <div className="space-y-3">
               {securityEvents.map((evt) => (
-                <div key={evt.id} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start justify-between">
+                <div key={evt.id} className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                   <div className="flex items-start gap-3">
                     <div className="p-2 bg-rose-100 text-rose-700 rounded-xl mt-0.5">
                       <ShieldAlert className="w-4 h-4" />

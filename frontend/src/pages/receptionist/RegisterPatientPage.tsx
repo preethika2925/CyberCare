@@ -127,33 +127,33 @@ export const RegisterPatientPage: React.FC = () => {
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 space-y-6 max-w-4xl mx-auto w-full">
+        <main className="flex-1 p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-4xl mx-auto w-full min-w-0">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 uppercase tracking-widest">
-              <UserPlus className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold text-indigo-600 uppercase tracking-widest">
+              <UserPlus className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               <span>Receptionist Registration Wizard (Dynamic Supabase DB)</span>
             </div>
-            <h1 className="text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
               Register New Patient Admission
             </h1>
           </div>
 
           {/* Success Banner */}
           {successResult ? (
-            <div className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-6 rounded-3xl shadow-xl space-y-4 animate-fade-in">
+            <div className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-4 sm:p-6 rounded-3xl shadow-xl space-y-4 animate-fade-in">
               <div className="flex items-center gap-3">
-                <div className="p-3 bg-white/20 rounded-2xl border border-white/30">
-                  <CheckCircle2 className="w-8 h-8 text-white" />
+                <div className="p-2.5 sm:p-3 bg-white/20 rounded-2xl border border-white/30 shrink-0">
+                  <CheckCircle2 className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase font-extrabold tracking-widest text-emerald-200">
+                  <span className="text-[10px] sm:text-xs uppercase font-extrabold tracking-widest text-emerald-200">
                     Registration Completed & Audited
                   </span>
-                  <h3 className="text-xl font-extrabold text-white">Patient Successfully Registered</h3>
+                  <h3 className="text-lg sm:text-xl font-extrabold text-white">Patient Successfully Registered</h3>
                 </div>
               </div>
 
-              <div className="p-4 bg-white/10 rounded-2xl border border-white/20 text-sm space-y-1">
+              <div className="p-3.5 sm:p-4 bg-white/10 rounded-2xl border border-white/20 text-xs sm:text-sm space-y-1">
                 <div>Patient: <strong className="text-white font-bold">{successResult.patientName}</strong></div>
                 <div>Medical Department: <strong className="text-emerald-200">{successResult.departmentName}</strong></div>
                 <div>Assigned Specialist: <strong className="text-amber-300">{successResult.doctorName}</strong></div>
@@ -162,23 +162,23 @@ export const RegisterPatientPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="flex items-center gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 pt-2">
                 <button
                   onClick={() => setSuccessResult(null)}
-                  className="px-5 py-2.5 bg-white text-emerald-800 font-bold text-xs rounded-xl shadow-md cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-2.5 bg-white text-emerald-800 font-bold text-xs rounded-xl shadow-md cursor-pointer"
                 >
                   Register Another Patient
                 </button>
                 <button
                   onClick={() => navigate('/receptionist/patients')}
-                  className="px-5 py-2.5 bg-emerald-900/40 text-white font-bold text-xs rounded-xl border border-white/20 hover:bg-emerald-900/60 cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-2.5 bg-emerald-900/40 text-white font-bold text-xs rounded-xl border border-white/20 hover:bg-emerald-900/60 cursor-pointer"
                 >
-                  View Patient Directory
+                  View Patient Directory →
                 </button>
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-white rounded-3xl border border-slate-200 shadow-glass p-6 space-y-6">
+            <form onSubmit={handleSubmit} className="bg-white rounded-3xl border border-slate-200 shadow-glass p-4 sm:p-6 space-y-5 sm:space-y-6">
               {/* Patient Personal Information */}
               <div className="space-y-4">
                 <h3 className="font-extrabold text-slate-900 text-base font-outfit border-b border-slate-100 pb-2">

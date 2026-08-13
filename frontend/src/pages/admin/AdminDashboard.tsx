@@ -72,21 +72,21 @@ export const AdminDashboard: React.FC = () => {
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
+        <main className="flex-1 p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto w-full min-w-0">
           {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 uppercase tracking-widest">
-                <Shield className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold text-indigo-600 uppercase tracking-widest">
+                <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                 <span>CyberCare Supabase SOC Command Center</span>
               </div>
-              <h1 className="text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
+              <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
                 Admin Security & Operations Dashboard
               </h1>
             </div>
             <button
               onClick={fetchOverview}
-              className="inline-flex items-center gap-2 px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs rounded-xl border border-slate-200 shadow-sm transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs rounded-xl border border-slate-200 shadow-sm transition-all cursor-pointer self-start sm:self-auto"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
               <span>Refresh Telemetry</span>
@@ -94,7 +94,7 @@ export const AdminDashboard: React.FC = () => {
           </div>
 
           {/* Metric Stats Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <MetricCard
               title="Total Patients"
               value={metrics?.totalPatients ?? '-'}
@@ -124,13 +124,13 @@ export const AdminDashboard: React.FC = () => {
           </div>
 
           {/* Threat Monitor & Charts */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
             <div className="lg:col-span-2">
               {threat && <ThreatScoreCard threat={threat} />}
             </div>
 
             {/* Risk Distribution Chart */}
-            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-glass flex flex-col justify-between">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-glass flex flex-col justify-between">
               <div>
                 <h3 className="font-extrabold text-slate-900 text-base font-outfit">Telemetry Risk Distribution</h3>
                 <p className="text-xs text-slate-500 mt-0.5">Real-time threat classification breakdown</p>
@@ -152,8 +152,8 @@ export const AdminDashboard: React.FC = () => {
               <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 text-xs font-semibold">
                 {pieData.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }}></span>
-                    <span className="text-slate-600">{item.name}:</span>
+                    <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: item.color }}></span>
+                    <span className="text-slate-600 truncate">{item.name}:</span>
                     <span className="text-slate-900 font-bold">{item.value}%</span>
                   </div>
                 ))}
@@ -162,19 +162,19 @@ export const AdminDashboard: React.FC = () => {
           </div>
 
           {/* Live Activity Feed */}
-          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-glass">
-            <div className="flex items-center justify-between mb-4">
+          <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-glass">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
               <div>
                 <h3 className="font-extrabold text-slate-900 text-base font-outfit">Live Audit Telemetry Feed</h3>
                 <p className="text-xs text-slate-500">Real-time system events, logins & security access checks</p>
               </div>
-              <span className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+              <span className="text-[11px] sm:text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200 self-start sm:self-auto">
                 Supabase Realtime Logs
               </span>
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
+              <table className="w-full text-left text-xs min-w-[640px]">
                 <thead>
                   <tr className="border-b border-slate-200 text-slate-400 font-bold uppercase tracking-wider">
                     <th className="pb-3">Timestamp</th>

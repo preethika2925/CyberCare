@@ -71,10 +71,10 @@ export const BreakGlassModal: React.FC<BreakGlassModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
-      <div className="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-rose-200 overflow-hidden transform transition-all">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in overflow-y-auto">
+      <div className="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-rose-200 transform transition-all my-auto">
         {/* Modal Header */}
-        <div className="bg-gradient-to-r from-rose-600 via-rose-700 to-purple-800 p-6 text-white relative">
+        <div className="bg-gradient-to-r from-rose-600 via-rose-700 to-purple-800 p-4 sm:p-6 text-white relative">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 text-rose-200 hover:text-white p-1 rounded-full hover:bg-white/10"
@@ -82,20 +82,20 @@ export const BreakGlassModal: React.FC<BreakGlassModalProps> = ({
             <X className="w-5 h-5" />
           </button>
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-white/15 rounded-2xl border border-white/20">
-              <ShieldAlert className="w-8 h-8 text-white animate-pulse" />
+            <div className="p-2.5 sm:p-3 bg-white/15 rounded-2xl border border-white/20">
+              <ShieldAlert className="w-6 h-6 sm:w-8 sm:h-8 text-white animate-pulse" />
             </div>
             <div>
-              <span className="text-xs uppercase font-extrabold tracking-widest text-rose-200">
+              <span className="text-[10px] sm:text-xs uppercase font-extrabold tracking-widest text-rose-200">
                 🚨 Emergency Break-Glass Access
               </span>
-              <h3 className="text-xl font-extrabold text-white">Override Restricted Access</h3>
+              <h3 className="text-lg sm:text-xl font-extrabold text-white">Override Restricted Access</h3>
             </div>
           </div>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between">
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Target Patient</span>

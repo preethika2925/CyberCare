@@ -66,10 +66,10 @@ export const LandingPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100/90 border border-slate-200/90 text-xs font-bold text-slate-700 shadow-sm"
+              className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-slate-100/90 border border-slate-200/90 text-[10px] sm:text-xs font-bold text-slate-700 shadow-sm"
             >
-              <Sparkles className="w-4 h-4 text-indigo-600 animate-pulse" />
-              <span className="tracking-wide">AI-POWERED HEALTHCARE SOC & EMERGENCY ACCESS PLATFORM</span>
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-600 animate-pulse shrink-0" />
+              <span className="tracking-wide text-center">AI-POWERED HEALTHCARE SOC & EMERGENCY ACCESS PLATFORM</span>
             </motion.div>
 
             {/* Dynamic Rotating Headline */}
@@ -77,10 +77,10 @@ export const LandingPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-outfit text-slate-900 leading-none min-h-[120px] sm:min-h-[150px] flex flex-col items-center justify-center"
+              className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-outfit text-slate-900 leading-tight min-h-[100px] sm:min-h-[140px] flex flex-col items-center justify-center"
             >
               <span>Protect Every Patient.</span>
-              <div className="h-16 sm:h-20 overflow-hidden flex items-center justify-center">
+              <div className="h-14 sm:h-20 overflow-hidden flex items-center justify-center">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={phraseIdx}
@@ -88,7 +88,7 @@ export const LandingPage: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -24 }}
                     transition={{ duration: 0.4, ease: 'easeOut' }}
-                    className="text-gradient block"
+                    className="text-gradient block text-center px-2"
                   >
                     {ROTATING_PHRASES[phraseIdx]}
                   </motion.span>
@@ -101,7 +101,7 @@ export const LandingPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-xl text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto"
+              className="text-sm sm:text-xl text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto px-2"
             >
               CyberCare is an intelligent healthcare security platform engineered for zero-trust authorization, department-isolated medical records, instant 2FA authentication, and emergency break-glass overrides.
             </motion.p>
@@ -111,22 +111,22 @@ export const LandingPage: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-500 pt-1"
+              className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-[11px] sm:text-xs font-semibold text-slate-500 pt-1 px-2"
             >
               <span className="flex items-center gap-1.5 text-blue-600">
-                <Check className="w-4 h-4 text-blue-600 font-bold" /> Dynamic Doctor & Dept Filtering
+                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 font-bold shrink-0" /> Dynamic Doctor & Dept Filtering
               </span>
-              <span className="text-slate-300">|</span>
+              <span className="hidden sm:inline text-slate-300">|</span>
               <span className="flex items-center gap-1.5 text-indigo-600">
-                <Check className="w-4 h-4 text-indigo-600 font-bold" /> Scikit-Learn Anomaly Forest
+                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-600 font-bold shrink-0" /> Scikit-Learn Anomaly Forest
               </span>
-              <span className="text-slate-300">|</span>
+              <span className="hidden sm:inline text-slate-300">|</span>
               <span className="flex items-center gap-1.5 text-emerald-600">
-                <Check className="w-4 h-4 text-emerald-600 font-bold" /> HIPAA & Row-Level Security
+                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 font-bold shrink-0" /> HIPAA & Row-Level Security
               </span>
-              <span className="text-slate-300">|</span>
+              <span className="hidden sm:inline text-slate-300">|</span>
               <span className="flex items-center gap-1.5 text-rose-600">
-                <Check className="w-4 h-4 text-rose-600 font-bold" /> Controlled Break-Glass 2FA
+                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 font-bold shrink-0" /> Controlled Break-Glass 2FA
               </span>
             </motion.div>
 

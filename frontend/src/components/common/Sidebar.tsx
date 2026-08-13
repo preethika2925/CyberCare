@@ -7,21 +7,34 @@ import {
   ShieldCheck,
   Activity,
   FileSpreadsheet,
-  AlertTriangle,
   Stethoscope,
   Flame,
-  ShieldAlert,
   ClipboardList,
-  LogOut
+  LogOut,
+  X
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { useSidebar } from '../../context/SidebarContext';
 
 export const Sidebar: React.FC = () => {
   const { user, logoutUser } = useAuth();
   const navigate = useNavigate();
+
+  let isMobileOpen = false;
+  let closeMobileSidebar = () => {};
+
+  try {
+    const sidebar = useSidebar();
+    isMobileOpen = sidebar.isMobileOpen;
+    closeMobileSidebar = sidebar.closeMobileSidebar;
+  } catch (e) {
+    // Context fallback
+  }
+
   if (!user) return null;
 
   const handleLogout = async () => {
+    closeMobileSidebar();
     await logoutUser();
     navigate('/signin');
   };
@@ -34,11 +47,11 @@ export const Sidebar: React.FC = () => {
             <div className="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
               SOC Security Command Center
             </div>
-            <SidebarItem to="/admin" icon={<LayoutDashboard className="w-4 h-4" />} label="Command Center" />
-            <SidebarItem to="/admin/users" icon={<Users className="w-4 h-4" />} label="User Management" />
-            <SidebarItem to="/admin/patients" icon={<ClipboardList className="w-4 h-4" />} label="Patient Database" />
-            <SidebarItem to="/admin/security" icon={<Activity className="w-4 h-4" />} label="AI Threat Monitor" />
-            <SidebarItem to="/admin/audit" icon={<FileSpreadsheet className="w-4 h-4" />} label="Audit Trail" />
+            <SidebarItem to="/admin" icon={<LayoutDashboard className="w-4 h-4" />} label="Command Center" onClick={closeMobileSidebar} />
+            <SidebarItem to="/admin/users" icon={<Users className="w-4 h-4" />} label="User Management" onClick={closeMobileSidebar} />
+            <SidebarItem to="/admin/patients" icon={<ClipboardList className="w-4 h-4" />} label="Patient Database" onClick={closeMobileSidebar} />
+            <SidebarItem to="/admin/security" icon={<Activity className="w-4 h-4" />} label="AI Threat Monitor" onClick={closeMobileSidebar} />
+            <SidebarItem to="/admin/audit" icon={<FileSpreadsheet className="w-4 h-4" />} label="Audit Trail" onClick={closeMobileSidebar} />
           </>
         );
 
@@ -48,9 +61,9 @@ export const Sidebar: React.FC = () => {
             <div className="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
               Clinical Workspace
             </div>
-            <SidebarItem to="/doctor" icon={<Stethoscope className="w-4 h-4" />} label="Doctor Overview" />
-            <SidebarItem to="/doctor/patients" icon={<Users className="w-4 h-4" />} label="Hospital Patients" />
-            <SidebarItem to="/doctor/break-glass" icon={<Flame className="w-4 h-4 text-rose-500" />} label="Emergency Break-Glass" highlight />
+            <SidebarItem to="/doctor" icon={<Stethoscope className="w-4 h-4" />} label="Doctor Overview" onClick={closeMobileSidebar} />
+            <SidebarItem to="/doctor/patients" icon={<Users className="w-4 h-4" />} label="Hospital Patients" onClick={closeMobileSidebar} />
+            <SidebarItem to="/doctor/break-glass" icon={<Flame className="w-4 h-4 text-rose-500" />} label="Emergency Break-Glass" highlight onClick={closeMobileSidebar} />
           </>
         );
 
@@ -60,9 +73,9 @@ export const Sidebar: React.FC = () => {
             <div className="px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
               Intake & Registration
             </div>
-            <SidebarItem to="/receptionist" icon={<LayoutDashboard className="w-4 h-4" />} label="Intake Dashboard" />
-            <SidebarItem to="/receptionist/register-patient" icon={<UserPlus className="w-4 h-4 text-blue-600" />} label="Register New Patient" highlight />
-            <SidebarItem to="/receptionist/patients" icon={<Users className="w-4 h-4" />} label="Patient Directory" />
+            <SidebarItem to="/receptionist" icon={<LayoutDashboard className="w-4 h-4" />} label="Intake Dashboard" onClick={closeMobileSidebar} />
+            <SidebarItem to="/receptionist/register-patient" icon={<UserPlus className="w-4 h-4 text-blue-600" />} label="Register New Patient" highlight onClick={closeMobileSidebar} />
+            <SidebarItem to="/receptionist/patients" icon={<Users className="w-4 h-4" />} label="Patient Directory" onClick={closeMobileSidebar} />
           </>
         );
 
@@ -71,8 +84,8 @@ export const Sidebar: React.FC = () => {
     }
   };
 
-  return (
-    <aside className="w-64 bg-white border-r border-slate-200 h-[calc(100vh-5rem)] sticky top-20 p-4 flex flex-col justify-between shrink-0 shadow-sm overflow-y-auto">
+  const navContent = (
+    <div className="flex flex-col justify-between h-full">
       <div className="space-y-6">
         <nav className="space-y-1">
           {renderNavLinks()}
@@ -103,7 +116,51 @@ export const Sidebar: React.FC = () => {
           <span>Sign Out</span>
         </button>
       </div>
-    </aside>
+    </div>
+  );
+
+  return (
+    <>
+      {/* Desktop Sticky Sidebar */}
+      <aside className="hidden lg:flex w-64 bg-white border-r border-slate-200 h-[calc(100vh-5rem)] sticky top-20 p-4 flex-col justify-between shrink-0 shadow-sm overflow-y-auto">
+        {navContent}
+      </aside>
+
+      {/* Mobile Slide-over Off-canvas Drawer */}
+      {isMobileOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          {/* Backdrop Blur Overlay */}
+          <div
+            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"
+            onClick={closeMobileSidebar}
+          />
+
+          {/* Drawer Container */}
+          <div className="fixed inset-y-0 left-0 max-w-xs w-full bg-white shadow-2xl p-5 flex flex-col justify-between z-50 transform transition-transform duration-300 ease-in-out">
+            <div className="flex items-center justify-between pb-4 mb-2 border-b border-slate-100">
+              <div className="flex items-center gap-2">
+                <img src="/logo.png" alt="CyberCare Logo" className="h-8 w-auto object-contain" />
+                <span className="font-extrabold text-lg text-slate-900 font-outfit">
+                  Cyber<span className="text-gradient-crimson">Care</span>
+                </span>
+              </div>
+
+              <button
+                onClick={closeMobileSidebar}
+                className="p-1.5 rounded-xl text-slate-500 hover:text-slate-900 bg-slate-100 hover:bg-slate-200"
+                aria-label="Close navigation"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto pt-2">
+              {navContent}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
@@ -112,12 +169,14 @@ interface SidebarItemProps {
   icon: React.ReactNode;
   label: string;
   highlight?: boolean;
+  onClick?: () => void;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ to, icon, label, highlight }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ to, icon, label, highlight, onClick }) => {
   return (
     <NavLink
       to={to}
+      onClick={onClick}
       end={to === '/admin' || to === '/doctor' || to === '/receptionist'}
       className={({ isActive }) =>
         `flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium text-xs transition-all ${

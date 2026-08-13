@@ -103,7 +103,7 @@ export const OtpInput: React.FC<OtpInputProps> = ({
       )}
 
       {/* 6 OTP Boxes */}
-      <div className="flex items-center justify-between gap-2 sm:gap-3">
+      <div className="flex items-center justify-between gap-1 xs:gap-2 sm:gap-3 max-w-full overflow-x-auto py-1">
         {otp.map((digit, idx) => (
           <input
             key={idx}
@@ -116,7 +116,7 @@ export const OtpInput: React.FC<OtpInputProps> = ({
             onKeyDown={(e) => handleKeyDown(idx, e)}
             onPaste={handlePaste}
             disabled={isSubmitting || timer === 0}
-            className={`w-11 h-14 sm:w-14 sm:h-16 text-center text-xl font-bold font-mono rounded-xl border transition-all ${
+            className={`w-9 h-12 xs:w-11 xs:h-14 sm:w-14 sm:h-16 text-center text-lg sm:text-xl font-bold font-mono rounded-xl border transition-all ${
               error
                 ? 'border-rose-400 bg-rose-50 text-rose-700 focus:ring-2 focus:ring-rose-500'
                 : digit

@@ -327,23 +327,23 @@ export const UserManagementPage: React.FC = () => {
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <main className="flex-1 p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto w-full min-w-0">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 uppercase tracking-widest">
-                <Users className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold text-indigo-600 uppercase tracking-widest">
+                <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                 <span>Hospital Staff & Department Management</span>
               </div>
-              <h1 className="text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
+              <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
                 Multi-Department Clinical Directory
               </h1>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
               {activeTab === 'DEPARTMENTS' && (
                 <button
                   onClick={() => { resetDeptForm(); setIsDeptModalOpen(true); }}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs rounded-xl shadow-md shadow-purple-500/20 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs rounded-xl shadow-md shadow-purple-500/20 transition-all cursor-pointer"
                 >
                   <Building2 className="w-4 h-4" />
                   <span>+ Add Department</span>
@@ -352,7 +352,7 @@ export const UserManagementPage: React.FC = () => {
               {activeTab === 'DOCTORS' && (
                 <button
                   onClick={() => { resetDoctorForm(); setIsDoctorModalOpen(true); }}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-xs rounded-xl shadow-md shadow-blue-500/20 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-xs rounded-xl shadow-md shadow-blue-500/20 transition-all cursor-pointer"
                 >
                   <UserPlus className="w-4 h-4" />
                   <span>+ Add Doctor</span>
@@ -361,7 +361,7 @@ export const UserManagementPage: React.FC = () => {
               {activeTab === 'RECEPTIONISTS' && (
                 <button
                   onClick={() => { setStaffModalRole('RECEPTIONIST'); setUserName(''); setUserEmail(''); setUserEmpId(''); setDocPassword('reception123'); setIsStaffModalOpen(true); }}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs rounded-xl shadow-md shadow-emerald-500/20 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs rounded-xl shadow-md shadow-emerald-500/20 transition-all cursor-pointer"
                 >
                   <UserPlus className="w-4 h-4" />
                   <span>+ Add Receptionist</span>
@@ -370,7 +370,7 @@ export const UserManagementPage: React.FC = () => {
               {activeTab === 'ADMINS' && (
                 <button
                   onClick={() => { setStaffModalRole('ADMIN'); setUserName(''); setUserEmail(''); setUserEmpId(''); setDocPassword('admin123'); setIsStaffModalOpen(true); }}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white font-bold text-xs rounded-xl shadow-md shadow-rose-500/20 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white font-bold text-xs rounded-xl shadow-md shadow-rose-500/20 transition-all cursor-pointer"
                 >
                   <Shield className="w-4 h-4" />
                   <span>+ Add Admin</span>
@@ -380,7 +380,7 @@ export const UserManagementPage: React.FC = () => {
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
+          <div className="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto max-w-full">
             {[
               { id: 'DOCTORS', label: `Doctors (${doctorsList.length})`, icon: Stethoscope },
               { id: 'DEPARTMENTS', label: `Departments (${deptStats.length})`, icon: Building2 },
@@ -393,7 +393,7 @@ export const UserManagementPage: React.FC = () => {
                 <button
                   key={t.id}
                   onClick={() => setActiveTab(t.id as any)}
-                  className={`flex items-center gap-2 px-4 py-2.5 font-bold text-xs rounded-xl transition-all cursor-pointer ${
+                  className={`flex items-center gap-2 px-3.5 sm:px-4 py-2.5 font-bold text-xs rounded-xl transition-all cursor-pointer shrink-0 ${
                     isActive
                       ? 'bg-slate-900 text-white shadow-sm'
                       : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
@@ -633,8 +633,8 @@ export const UserManagementPage: React.FC = () => {
 
       {/* MODAL 1: ADD / EDIT DOCTOR */}
       {(isDoctorModalOpen || editingDoctor) && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl border border-slate-200 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-4 sm:p-6 space-y-4 shadow-2xl border border-slate-200 relative my-auto">
             <button
               onClick={() => { setIsDoctorModalOpen(false); setEditingDoctor(null); }}
               className="absolute top-4 right-4 text-slate-400 hover:text-slate-600"
@@ -716,8 +716,8 @@ export const UserManagementPage: React.FC = () => {
 
       {/* MODAL 2: ADD / EDIT DEPARTMENT */}
       {(isDeptModalOpen || editingDepartment) && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-200 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto p-4 sm:p-6 space-y-4 shadow-2xl border border-slate-200 relative my-auto">
             <button onClick={() => { setIsDeptModalOpen(false); setEditingDepartment(null); }} className="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
               <X className="w-5 h-5" />
             </button>
@@ -764,8 +764,8 @@ export const UserManagementPage: React.FC = () => {
 
       {/* MODAL 3: EDIT STAFF USER (Receptionist / Admin) */}
       {editingUser && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-200 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto p-4 sm:p-6 space-y-4 shadow-2xl border border-slate-200 relative my-auto">
             <button onClick={() => setEditingUser(null)} className="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
               <X className="w-5 h-5" />
             </button>
@@ -813,8 +813,8 @@ export const UserManagementPage: React.FC = () => {
       )}
       {/* MODAL 4: ADD RECEPTIONIST / ADMIN */}
       {isStaffModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-200 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto p-4 sm:p-6 space-y-4 shadow-2xl border border-slate-200 relative my-auto">
             <button onClick={() => setIsStaffModalOpen(false)} className="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
               <X className="w-5 h-5" />
             </button>

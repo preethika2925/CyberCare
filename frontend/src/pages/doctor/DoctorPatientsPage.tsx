@@ -64,22 +64,22 @@ export const DoctorPatientsPage: React.FC = () => {
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <main className="flex-1 p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto w-full min-w-0">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 uppercase tracking-widest">
-                <Users className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold text-indigo-600 uppercase tracking-widest">
+                <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                 <span>Clinical Patient Roster</span>
               </div>
-              <h1 className="text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
+              <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
                 My Patients
               </h1>
-              <p className="text-xs text-slate-500 mt-0.5 font-medium">
+              <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 font-medium">
                 Patients currently assigned to {user?.name} (Supabase RLS Protected)
               </p>
             </div>
 
-            <div className="flex items-center gap-2 px-3.5 py-1.5 bg-emerald-50 text-emerald-800 rounded-full border border-emerald-200 text-xs font-bold">
+            <div className="flex items-center gap-2 px-3.5 py-1.5 bg-emerald-50 text-emerald-800 rounded-full border border-emerald-200 text-xs font-bold self-start sm:self-auto">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span>{patients.length} Assigned Patients</span>
             </div>

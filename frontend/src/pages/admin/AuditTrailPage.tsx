@@ -40,20 +40,20 @@ export const AuditTrailPage: React.FC = () => {
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
+        <main className="flex-1 p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto w-full min-w-0">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 uppercase tracking-widest">
-              <FileSpreadsheet className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold text-indigo-600 uppercase tracking-widest">
+              <FileSpreadsheet className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               <span>SOC Compliance Ledger</span>
             </div>
-            <h1 className="text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
               System Audit Trail & Access Events
             </h1>
           </div>
 
           {/* Filters */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="md:col-span-2 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+            <div className="sm:col-span-2 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
               <Search className="w-4 h-4 text-slate-400" />
               <input
                 type="text"
@@ -96,13 +96,13 @@ export const AuditTrailPage: React.FC = () => {
 
           {/* Audit Logs Table */}
           <div className="bg-white rounded-3xl border border-slate-200 shadow-glass overflow-hidden">
-            <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+            <div className="p-4 sm:p-6 border-b border-slate-100 flex items-center justify-between">
               <h3 className="font-extrabold text-slate-900 text-base font-outfit">Audit Event Records</h3>
               <span className="text-xs font-bold text-slate-500">{filteredLogs.length} Events Logged</span>
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
+              <table className="w-full text-left text-xs min-w-[700px]">
                 <thead>
                   <tr className="border-b border-slate-200 text-slate-400 font-bold uppercase tracking-wider bg-slate-50/50">
                     <th className="p-4">Timestamp</th>

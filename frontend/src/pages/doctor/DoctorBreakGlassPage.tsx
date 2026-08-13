@@ -49,19 +49,19 @@ export const DoctorBreakGlassPage: React.FC = () => {
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
+        <main className="flex-1 p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto w-full min-w-0">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold text-rose-600 uppercase tracking-widest">
-              <Flame className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold text-rose-600 uppercase tracking-widest">
+              <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               <span>Controlled Privilege Escalation Protocol</span>
             </div>
-            <h1 className="text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-outfit mt-0.5">
               Emergency Break-Glass Management
             </h1>
           </div>
 
           {/* Active Overrides */}
-          <div className="bg-white rounded-3xl border border-rose-200 shadow-glass p-6 space-y-4">
+          <div className="bg-white rounded-3xl border border-rose-200 shadow-glass p-4 sm:p-6 space-y-4">
             <h3 className="font-extrabold text-slate-900 text-base font-outfit flex items-center gap-2">
               <ShieldAlert className="w-5 h-5 text-rose-600" />
               <span>Active Break-Glass Overrides ({activeBreakGlass.length})</span>

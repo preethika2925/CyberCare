@@ -37,21 +37,21 @@ export const ReceptionistDashboard: React.FC = () => {
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
+        <main className="flex-1 p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto w-full min-w-0">
           {/* Intake Banner */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 p-6 rounded-3xl text-white shadow-xl">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white text-2xl font-bold font-outfit shadow-inner">
-                <UserPlus className="w-7 h-7 text-blue-300" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 p-4 sm:p-6 rounded-3xl text-white shadow-xl">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white text-xl sm:text-2xl font-bold font-outfit shadow-inner shrink-0">
+                <UserPlus className="w-6 h-6 sm:w-7 sm:h-7 text-blue-300" />
               </div>
               <div>
-                <span className="text-xs uppercase font-extrabold tracking-widest text-blue-300">
+                <span className="text-[10px] sm:text-xs uppercase font-extrabold tracking-widest text-blue-300">
                   Patient Intake & Registration Center
                 </span>
-                <h1 className="text-2xl font-extrabold text-white font-outfit">
+                <h1 className="text-xl sm:text-2xl font-extrabold text-white font-outfit">
                   Hospital Reception & Intake Portal
                 </h1>
-                <p className="text-xs text-slate-300 mt-0.5">
+                <p className="text-[11px] sm:text-xs text-slate-300 mt-0.5">
                   Register new patient admissions & automatically assign qualified department specialists
                 </p>
               </div>
@@ -59,7 +59,7 @@ export const ReceptionistDashboard: React.FC = () => {
 
             <Link
               to="/receptionist/register-patient"
-              className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-blue-500/25 transition-all transform hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-blue-500/25 transition-all transform hover:-translate-y-0.5"
             >
               <UserPlus className="w-4 h-4" />
               <span>Register New Patient Admission →</span>
