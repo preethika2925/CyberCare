@@ -1,0 +1,125 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String      @id @default(uuid())
+  name         String
+  email        String      @unique
+  employeeId   String      @unique
+  passwordHash String
+  role         String      // ADMIN, DOCTOR, RECEPTIONIST
+  status       String      @default("ACTIVE") // ACTIVE, DISABLED, LOCKED
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  doctor       Doctor?
+  otpSessions  OtpSession[]
+  auditLogs    AuditLog[]
+  securityEvents SecurityEvent[]
+}
+
+model Department {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  description String?
+  doctors     Doctor[]
+  patients    Patient[]
+}
+
+model Doctor {
+  id             String      @id @default(uuid())
+  userId         String      @unique
+  user           User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  departmentId   String
+  department     Department  @relation(fields: [departmentId], references: [id])
+  specialization String
+  roomNumber     String?
+
+  assignments    PatientDoctorAssignment[]
+  breakGlassEvents BreakGlassEvent[]
+}
+
+model Patient {
+  id                String     @id @default(uuid())
+  name              String
+  address           String
+  aadharNumber      String
+  phone             String
+  bloodGroup        String
+  previousMedicines String?
+  currentProblem    String
+  departmentId      String
+  department        Department @relation(fields: [departmentId], references: [id])
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  assignments       PatientDoctorAssignment[]
+  breakGlassEvents  BreakGlassEvent[]
+  auditLogs         AuditLog[]
+}
+
+model PatientDoctorAssignment {
+  id         String   @id @default(uuid())
+  patientId  String
+  patient    Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  doctorId   String
+  doctor     Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  assignedAt DateTime @default(now())
+  status     String   @default("ACTIVE") // ACTIVE, COMPLETED, TRANSFERRED
+}
+
+model OtpSession {
+  id         String    @id @default(uuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  otpCode    String
+  expiresAt  DateTime
+  attempts   Int       @default(0)
+  verifiedAt DateTime?
+  createdAt  DateTime  @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action    String
+  patientId String?
+  patient   Patient? @relation(fields: [patientId], references: [id], onDelete: SetNull)
+  status    String   // SUCCESS, DENIED, WARNING, EMERGENCY
+  riskScore Int      @default(0)
+  reason    String?
+  ipAddress String?
+  timestamp DateTime @default(now())
+}
+
+model SecurityEvent {
+  id             String   @id @default(uuid())
+  userId         String?
+  user           User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  eventType      String
+  riskScore      Int      @default(0)
+  classification String   @default("LOW") // LOW, MEDIUM, HIGH, CRITICAL
+  details        String
+  timestamp      DateTime @default(now())
+}
+
+model BreakGlassEvent {
+  id          String   @id @default(uuid())
+  doctorId    String
+  doctor      Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  patientId   String
+  patient     Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  reason      String
+  startedAt   DateTime @default(now())
+  expiresAt   DateTime
+  status      String   @default("ACTIVE") // ACTIVE, EXPIRED, REVOKED
+  otpVerified Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}

@@ -1,0 +1,17 @@
+{
+  "name": "cybercare",
+  "version": "1.0.0",
+  "description": "CyberCare — AI-Powered Hospital Data Security & Emergency Access Platform",
+  "private": true,
+  "scripts": {
+    "setup": "cd backend && npm install && npx prisma db push && npm run seed && cd ../frontend && npm install",
+    "start": "concurrently \"npm run backend\" \"npm run ml\" \"npm run frontend\"",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "ml": "cd ml-service && python3 app.py",
+    "build": "cd backend && npm run build && cd ../frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
