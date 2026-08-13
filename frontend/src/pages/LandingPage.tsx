@@ -269,11 +269,8 @@ export const LandingPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
             {/* Column 1: Brand & Overview (Spans 2 cols on lg) */}
             <div className="lg:col-span-2 space-y-4">
-              <Link to="/" className="inline-flex items-center gap-3 group">
+              <Link to="/" className="inline-flex items-center group">
                 <img src="/logo.png" alt="CyberCare Logo" className="h-10 w-auto object-contain group-hover:scale-105 transition-transform" />
-                <span className="font-extrabold text-2xl tracking-tight text-white font-outfit">
-                  Cyber<span className="text-rose-400">Care</span>
-                </span>
               </Link>
 
               <p className="text-xs text-slate-400 leading-relaxed max-w-sm">

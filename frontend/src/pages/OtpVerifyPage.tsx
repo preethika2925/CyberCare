@@ -62,11 +62,8 @@ export const OtpVerifyPage: React.FC = () => {
       </div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center relative z-10 flex flex-col items-center mt-10 sm:mt-0">
-        <Link to="/" className="inline-flex items-center gap-2 sm:gap-3 group mb-2">
-          <img src="/logo.png" alt="CyberCare Logo" className="h-10 sm:h-14 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform" />
-          <span className="font-extrabold text-2xl sm:text-3xl tracking-tight text-white font-outfit drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-            Cyber<span className="text-rose-400">Care</span>
-          </span>
+        <Link to="/" className="inline-flex items-center group mb-2">
+          <img src="/logo.png" alt="CyberCare Logo" className="h-12 sm:h-16 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform" />
         </Link>
         <h2 className="text-xl sm:text-2xl font-extrabold text-white font-outfit tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
           Verify Your Identity

@@ -138,11 +138,8 @@ export const Sidebar: React.FC = () => {
           {/* Drawer Container */}
           <div className="fixed inset-y-0 left-0 max-w-xs w-full bg-white shadow-2xl p-5 flex flex-col justify-between z-50 transform transition-transform duration-300 ease-in-out">
             <div className="flex items-center justify-between pb-4 mb-2 border-b border-slate-100">
-              <div className="flex items-center gap-2">
-                <img src="/logo.png" alt="CyberCare Logo" className="h-8 w-auto object-contain" />
-                <span className="font-extrabold text-lg text-slate-900 font-outfit">
-                  Cyber<span className="text-gradient-crimson">Care</span>
-                </span>
+              <div className="flex items-center">
+                <img src="/logo.png" alt="CyberCare Logo" className="h-9 w-auto object-contain" />
               </div>
 
               <button

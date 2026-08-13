@@ -39,21 +39,13 @@ export const Navbar: React.FC = () => {
             </button>
           )}
 
-          {/* Brand Logo & Title */}
-          <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group py-1.5">
+          {/* Brand Logo */}
+          <Link to="/" className="flex items-center group py-1.5 ml-2 sm:ml-4 lg:ml-6">
             <img
               src="/logo.png"
               alt="CyberCare Logo"
-              className="h-9 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-md"
+              className="h-12 sm:h-16 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-md"
             />
-            <div className="flex items-center gap-2">
-              <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-slate-900 font-outfit">
-                Cyber<span className="text-gradient-crimson">Care</span>
-              </span>
-              <span className="hidden sm:inline-block text-[10px] uppercase font-bold tracking-widest px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
-                Healthcare SOC
-              </span>
-            </div>
           </Link>
         </div>
 
